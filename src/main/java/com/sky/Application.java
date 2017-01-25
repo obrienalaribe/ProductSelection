@@ -32,7 +32,6 @@ public class Application {
 
             CatalogueService catalogueService = new CatalogueService(new ProductDataProviderStubImpl());
             ArrayList<ArrayList<Product>> catalogue = catalogueService.fetchProductsByLocation(customerLocation);
-            System.out.println( request.cookie("customerID"));
 
             Map<String, Object> model = new HashMap<>();
             model.put("basicProducts", catalogue.get(0));
