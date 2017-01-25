@@ -46,7 +46,7 @@ public class ProductSelectionPageAcceptanceTest {
     public void createDriver() {
         driver = new RemoteWebDriver(service.getUrl(),
                 DesiredCapabilities.chrome());
-        wait = new WebDriverWait(driver, 1000);
+        wait = new WebDriverWait(driver, 100);
 
     }
 
@@ -76,11 +76,11 @@ public class ProductSelectionPageAcceptanceTest {
         driver.quit();
     }
 
-    private void givenACustomerWithCustomerID(){
+    private void givenACustomerWithCustomerID() throws InterruptedException {
         driver.get(PRODUCT_SELECTION_PAGE);
+        Thread.sleep(1000);
         driver.manage().addCookie(new Cookie("customerID", "123"));
         assertEquals("Sky- Product Selection", driver.getTitle());
-
     }
 
     private void whenTheySelectAFewProducts(){
@@ -117,6 +117,8 @@ public class ProductSelectionPageAcceptanceTest {
         assertEquals("Sky- Product Confirmation",driver.getTitle());
         String customerID = driver.findElement(By.id("c_id")).getText();
         assertEquals("123", customerID);
+        assertEquals(2, basketContent().size());
+
     }
 
     private List<WebElement> basketContent(){

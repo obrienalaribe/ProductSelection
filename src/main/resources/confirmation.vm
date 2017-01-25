@@ -32,15 +32,15 @@
         <hr>
 
         <h5>Customer ID: <span id="c_id">$customerID</span></h5>
-        <ul class="list-group">
+        <ul id="basket" class="list-group">
             #foreach($product in $selectedProducts )
 
                             <li id="$product" class="list-group-item">$product</li>
-                    </ul>
+
 
 
             #end
-
+         </ul>
     <!--row end -->
 
     <hr>
