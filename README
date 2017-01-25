@@ -1,0 +1,7 @@
+This is a maven project that uses Spark to handle HTTP requests.
+
+Unit tests and Acceptance have been written for this.
+
+To run the acceptance test the chrome driver will be required which is available on the root directory.
+
+Update this line new File("/Applications/chromedriver") to match a suitable location
